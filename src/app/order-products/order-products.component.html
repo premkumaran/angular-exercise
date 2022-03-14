@@ -1,0 +1,31 @@
+<table>
+    <tr>
+        <td>Order Id </td>
+        <td>
+            <input type="text" [(ngModel)]="order.id" placeholder="Order Id">
+        </td>
+    </tr>
+    <tr>
+        <td> Customer Id </td>
+        <td>
+            <input type="text" [(ngModel)]="order.customerId" placeholder="Customer Id">
+        </td>
+    </tr>
+    <tr>
+        <td> Product Id </td>
+        <td>
+            <input type="text" [(ngModel)]="order.productId" placeholder="Product Id">
+        </td>
+    </tr>
+    <tr>
+        <td> Quantity </td>
+        <td>
+            <input type="text" [(ngModel)]="order.quantity" placeholder="Quantity">
+        </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td>
+            <input type="button" value="order" (click)="placeOrder()">
+        </td>
+</table>

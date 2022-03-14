@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <td> Product Name </td>
+        <td>
+            <input type="text" [(ngModel)]="product.name" placeholder="Product Name">
+        </td>
+    </tr>
+    <tr>
+        <td> Product Id </td>
+        <td>
+            <input type="text" [(ngModel)]="product.id"  placeholder="Product Id">
+        </td>
+    </tr>
+    <tr>
+        <td> Available Quantity </td>
+        <td>
+            <input type="text" [(ngModel)]="product.quantity" placeholder="Product Quantity">
+        </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td>
+            <input type="button" value="Add" (click)="addproducts()">
+        </td>
+</table>
