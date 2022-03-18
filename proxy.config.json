@@ -1,7 +1,7 @@
 {
   "/api/*": {
-    "target":"https://uiexercise.onemindindia.com/api/",
-    "secure": false,
+    "target":"https://uiexercise.onemindindia.com",
+    "secure": true,
     "changeOrigin":true,
     "pathRewrite": {
         "^/api" : ""

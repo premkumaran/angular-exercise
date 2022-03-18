@@ -1,31 +1,53 @@
-<table>
-    <tr>
-        <td>Order Id </td>
-        <td>
-            <input type="text" [(ngModel)]="order.id" placeholder="Order Id">
-        </td>
-    </tr>
-    <tr>
-        <td> Customer Id </td>
-        <td>
-            <input type="text" [(ngModel)]="order.customerId" placeholder="Customer Id">
-        </td>
-    </tr>
-    <tr>
-        <td> Product Id </td>
-        <td>
-            <input type="text" [(ngModel)]="order.productId" placeholder="Product Id">
-        </td>
-    </tr>
-    <tr>
-        <td> Quantity </td>
-        <td>
-            <input type="text" [(ngModel)]="order.quantity" placeholder="Quantity">
-        </td>
-    </tr>
-    <tr>
-        <td> </td>
-        <td>
-            <input type="button" value="order" (click)="placeOrder()">
-        </td>
-</table>
+<div class="order-container">
+    <div class="order-content">
+        <mat-toolbar color="primary">Order Product</mat-toolbar>
+        <mat-card>
+            <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" novalidate>
+
+                <div>
+                    <mat-form-field class="form-field" disabled='true' appearance="outline">
+                        <mat-label> Order Id</mat-label>
+                        <input type="text" matInput formControlName="orderId" required>
+                        <mat-error *ngIf="orderForm.controls.orderId.touched && orderForm.controls.orderId.invalid">
+                            <span *ngIf="orderForm.controls.orderId.errors.required"> Order Id is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Customer Id</mat-label>
+                        <input type="text" matInput formControlName="customerId" required>
+                        <mat-error
+                            *ngIf="orderForm.controls.customerId.touched && orderForm.controls.customerId.invalid">
+                            <span *ngIf="orderForm.controls.customerId.errors.required"> Customer Id is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label> Product Id</mat-label>
+                        <input type="text" matInput formControlName="productId" required>
+                        <mat-error *ngIf="orderForm.controls.productId.touched && orderForm.controls.productId.invalid">
+                            <span *ngIf="orderForm.controls.productId.errors.required"> Product Id is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Quantity</mat-label>
+                        <input type="number" matInput formControlName="quantity" required>
+                        <mat-error *ngIf="orderForm.controls.quantity.touched && orderForm.controls.quantity.invalid">
+                            <span *ngIf="orderForm.controls.quantity.errors.required"> Quantity is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+
+            </form>
+        </mat-card>
+    </div>
+</div>

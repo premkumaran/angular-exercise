@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiserviceService } from '../apiservice.service';
+import { HttpClient } from '@angular/common/http';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-list-products',
@@ -7,12 +8,20 @@ import { ApiserviceService } from '../apiservice.service';
   styleUrls: ['./list-products.component.css']
 })
 export class ListProductsComponent implements OnInit {
-
-  constructor(private api: ApiserviceService) { }
+  displayedColumns: any[] = ['sn', 'productname', 'productid', 'availablequantity'];
+  public dataSource: any = [];
+  constructor(private http: HttpClient) {
+    this.table();
+  }
 
   ngOnInit(): void {
-    this.api.Get('Product').subscribe(data => {
-      console.log(data);
+
+  }
+  private table() {
+    this.http.get<any>('https://uiexercise.onemindindia.com/api/Product').subscribe((data) => {
+      this.dataSource = data;
+      console.log("data", this.dataSource);
+
     })
 
   }

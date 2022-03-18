@@ -1,1 +1,12 @@
+<mat-toolbar color="primary">
+    <span> Angular Exercise</span>
+    <div style="margin-left: 65%;">
+        <button mat-raised-button color="base" type="submit" [routerLink]="['/addproducts']">Add Products</button>
+        <button mat-raised-button color="base" type="submit" [routerLink]="['/listproducts']">List Products</button>
+        <button mat-raised-button color="base" type="submit" [routerLink]="['/orderproducts']">Order Products</button>
+    </div>
+</mat-toolbar>
+
+
+
 <router-outlet></router-outlet>
